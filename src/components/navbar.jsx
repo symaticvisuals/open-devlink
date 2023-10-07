@@ -15,7 +15,7 @@ function MainNavbar() {
     <div>
       <Navbar className="" isBlurred isBordered shouldHideOnScroll>
         <NavbarBrand>
-          <p className="font-bold text-inherit">Open-Devlink{"<></>"}</p>
+          <p className="font-bold text-inherit">open-spacelink{"<></>"}</p>
         </NavbarBrand>
 
         <NavbarContent justify="end">

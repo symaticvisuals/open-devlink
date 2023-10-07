@@ -1,5 +1,5 @@
 {
-  "name": "open-devlink",
+  "name": "open-spacelink",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "github:octokit/rest.js",
     "appwrite": "^13.0.0",
     "axios": "^1.5.1",
     "clsx": "^2.0.0",

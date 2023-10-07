@@ -13,6 +13,7 @@ import {
   VisuallyHidden,
   Chip,
   CheckboxIcon,
+  Input,
 } from "@nextui-org/react";
 
 export default function TypeTabs() {
@@ -27,7 +28,7 @@ export default function TypeTabs() {
     {
       id: "Creators",
       label: "Creator Repos",
-      description: "Repository of the creators of Open Devlink.",
+      description: "Repository of the creators of Open Spacelink.",
       children: <CreatorElements />,
     },
   ];
@@ -77,7 +78,12 @@ const ContributorElements = () => {
     },
   ];
   return (
-    <div className="mt-3">
+    <div className="mt-3 grid grid-cols-3 gap-3">
+      <Input
+        placeholder="Search for a repository"
+        className="cols-span-2"
+        size="lg"
+      />
       <Select
         items={languages}
         label="Choose a language"
@@ -159,6 +165,11 @@ const CreatorElements = () => {
   ];
   return (
     <div className="mt-3 flex gap-4">
+      <Input
+        placeholder="Search for a repository"
+        className="cols-span-2"
+        size="lg"
+      />
       <Select
         items={languages}
         label="Choose a language"
