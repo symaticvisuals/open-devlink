@@ -1,16 +1,23 @@
 "use client";
 import React from "react";
 import { Button } from "@nextui-org/react";
+import { cn } from "@/lib/utils";
 
-export default function Buttons({ icon, text, color, fn }) {
+export default function Buttons({
+  icon,
+  text,
+  color,
+  fn,
+  className,
+  variant = "ghost",
+}) {
   return (
     <Button
       color={color}
-      className="text-lg mr-2 shadow-xl"
-      variant="ghost"
+      className={cn("text-lg mr-2 shadow-xl", className)}
+      variant={variant}
       onPress={fn}
       startContent={icon}
-      
     >
       {text}
     </Button>

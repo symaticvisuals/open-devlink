@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Tabs,
   Tab,
@@ -14,7 +14,12 @@ import {
   Chip,
   CheckboxIcon,
   Input,
+  Button,
+  Spinner,
 } from "@nextui-org/react";
+import { RepoCards, UserRepoCards } from "./cards";
+import { BiGitRepoForked } from "react-icons/bi";
+import RepoDropdown from "./repo-dropdown";
 
 export default function TypeTabs() {
   let tabs = [
@@ -24,27 +29,59 @@ export default function TypeTabs() {
       description:
         "Repositories that are looking for contributors to contribute to their projects.",
       children: <ContributorElements />,
+      repos: <RepoCards />,
     },
     {
       id: "Creators",
       label: "Creator Repos",
       description: "Repository of the creators of Open Spacelink.",
       children: <CreatorElements />,
+      repos: <UserRepoCards />,
     },
   ];
 
   return (
     <div className="flex w-full flex-col">
-      <Tabs aria-label="Dynamic tabs" items={tabs} size="lg">
-        {(item) => (
-          <Tab key={item.id} title={item.id}>
-            <h3 className="text-xl font-semibold text-blue-400">
-              {item.label}
-            </h3>
-            <p>{item.description}</p>
-            {item.children}
-          </Tab>
-        )}
+      <Tabs aria-label="Dynamic tabs" size="lg">
+        <Tab key={tabs[0].id} title={tabs[0].id}>
+          <h3 className="text-xl font-semibold text-blue-400">
+            {tabs[0].label}
+          </h3>
+          <p>{tabs[0].description}</p>
+          {tabs[0].children}
+          <div className="mt-4">{tabs[0].repos}</div>
+        </Tab>
+        <Tab key={tabs[1].id} title={tabs[1].id}>
+          <h3 className="text-xl font-semibold text-blue-400">
+            {tabs[1].label}
+          </h3>
+          <p>{tabs[1].description}</p>
+          {tabs[1].children}
+          <div className="mt-4 grid grid-cols-3 gap-3">
+            {tabs[1].repos}
+            <div className="">
+              <Card className="h-[400px]">
+                <CardHeader title="Add a new repository" />
+                <CardBody className="flex justify-center items-center gap-2">
+                  <h3 className="text-lg">Add a new repository</h3>
+                  <p className="text-sm text-zinc-300 text-center">
+                    Share a repo now to show your creations and gain support
+                    from other Contributors!
+                  </p>
+                  <Suspense
+                    fallback={
+                      <div>
+                        <Spinner />
+                      </div>
+                    }
+                  >
+                    <RepoDropdown />
+                  </Suspense>
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+        </Tab>
       </Tabs>
     </div>
   );

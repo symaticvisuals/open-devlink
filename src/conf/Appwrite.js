@@ -1,10 +1,12 @@
-import { Client, Account } from "appwrite";
+import { Client, Account, Databases } from "appwrite";
 import conf from "./config";
 const client = new Client();
 
 client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
 
 const account = new Account(client);
+
+const databases = new Databases(client);
 
 export const sdk = {
   register: async (success, failure) => {
@@ -15,6 +17,11 @@ export const sdk = {
       "admin:repo_hook",
       "account",
     ]);
+  },
+
+  createDocument: async (data) => {
+    //create a new document
+    return await databases.createDocument("6521970637c5c35faf2e", data);
   },
 
   getAccount: async () => {
