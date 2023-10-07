@@ -10,6 +10,7 @@ export default function Buttons({ icon, text, color, fn }) {
       variant="ghost"
       onPress={fn}
       startContent={icon}
+      
     >
       {text}
     </Button>
