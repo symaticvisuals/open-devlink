@@ -1,5 +1,6 @@
 import { Client, Account, Databases } from "appwrite";
 import conf from "./config";
+import { ID } from "appwrite";
 const client = new Client();
 
 client.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
@@ -21,7 +22,12 @@ export const sdk = {
 
   createDocument: async (data) => {
     //create a new document
-    return await databases.createDocument("6521970637c5c35faf2e", data);
+    return await databases.createDocument(
+      ["652191983e91f2abdaab"],
+      ["6521970637c5c35faf2e"],
+      ID.unique(),
+      data
+    );
   },
 
   getAccount: async () => {
@@ -32,6 +38,13 @@ export const sdk = {
   getSession: async () => {
     //get current session data
     return await account.getSession("current");
+  },
+
+  getProviderAccessToken: async () => {
+    //get user's provider access token
+    const promise = await account.getSession("current");
+
+    return promise.providerAccessToken;
   },
 
   getGithubData: async () => {

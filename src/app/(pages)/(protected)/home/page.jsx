@@ -20,10 +20,6 @@ const Home = () => {
   return (
     <div className="container mt-6 flex flex-col gap-4">
       <TypeTabs />
-
-      <div className="">
-        <pre className="">{JSON.stringify(github, null, 2)}</pre>
-      </div>
     </div>
   );
 };

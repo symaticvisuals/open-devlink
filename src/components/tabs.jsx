@@ -29,7 +29,11 @@ export default function TypeTabs() {
       description:
         "Repositories that are looking for contributors to contribute to their projects.",
       children: <ContributorElements />,
-      repos: <RepoCards />,
+      repos: (
+        <Suspense fallback={<Spinner />}>
+          <RepoCards />
+        </Suspense>
+      ),
     },
     {
       id: "Creators",

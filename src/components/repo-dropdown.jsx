@@ -14,12 +14,17 @@ function RepoDropdown() {
     try {
       const githubData = await sdk.getGithubData();
       const username = githubData.login;
+      const accessToken = await sdk.getProviderAccessToken();
+      console.log(accessToken);
       setUsername(username);
       const repos =
         username &&
         (await axios({
           url: `https://api.github.com/users/${username}/repos?owner=true`,
           method: "GET",
+          headers: {
+            Authorization: `token ${accessToken}`,
+          },
         }));
 
       const repo_names = repos.data.map((repo) => {
@@ -34,8 +39,12 @@ function RepoDropdown() {
     }
   };
 
-    const addRepo = async () => {
-      const data = sdk.createDocument()
+  const addRepo = async () => {
+    const data = await sdk.createDocument({
+      owner: username,
+      repo: [selectedRepo],
+    });
+    return data;
   };
 
   useEffect(() => {
@@ -50,7 +59,7 @@ function RepoDropdown() {
         placeholder="Select your masterpiece"
         className="w-[300px]"
         onChange={(e) => {
-          selectedRepo(e.target.value);
+          setSelectedRepo(e.target.value);
         }}
       >
         {(repo) => <SelectItem key={repo.name}>{repo.name}</SelectItem>}
@@ -61,6 +70,7 @@ function RepoDropdown() {
         color="primary"
         icon={<BiGitRepoForked />}
         text={"Connect Repository"}
+        fn={addRepo}
       />
     </div>
   );
