@@ -1,5 +1,5 @@
 {
-  "name": "open-devlink",
+  "name": "open-spacelink",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,13 +10,19 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "github:octokit/rest.js",
     "appwrite": "^13.0.0",
     "axios": "^1.5.1",
+    "axios-batch": "^0.0.8",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "encoding": "^0.1.13",
     "framer-motion": "^10.16.4",
     "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.11.0",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "autoprefixer": "^10",
