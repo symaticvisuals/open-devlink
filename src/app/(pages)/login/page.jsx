@@ -8,8 +8,8 @@ import { sdk } from "@/conf/Appwrite";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const redirectUrl = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN + "home";
-  const failureUrl = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN + "login";
+  const redirectUrl = "https://open-spacelink.vercel.app/" + "home";
+  const failureUrl = "https://open-spacelink.vercel.app/" + "login";
   const handleLoginGithub = () => {
     sdk.register(redirectUrl, failureUrl);
   };
