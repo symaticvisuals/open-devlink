@@ -8,8 +8,8 @@ import { sdk } from "@/conf/Appwrite";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const redirectUrl = "http://localhost:3000/" + "home";
-  const failureUrl = "http://localhost:3000/" + "login";
+  const redirectUrl = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN + "home";
+  const failureUrl = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN + "login";
   const handleLoginGithub = () => {
     sdk.register(redirectUrl, failureUrl);
   };
