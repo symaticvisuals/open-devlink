@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const redirectUrl = "https://open-spacelink.vercel.app/" + "home";
   const failureUrl = "https://open-spacelink.vercel.app/" + "login";
+
   const handleLoginGithub = () => {
     sdk.register(redirectUrl, failureUrl);
   };
