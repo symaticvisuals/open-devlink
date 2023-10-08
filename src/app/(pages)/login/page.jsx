@@ -6,8 +6,8 @@ import { BsGoogle } from "react-icons/bs";
 
 export default function Login() {
   return (
-    <div className="container h-full w-full p-6 over">
-      <div className="h-screen flex justify-between items-center">
+    <div className="container h-screen w-full p-6 over">
+      <div className="h-full flex justify-between items-center">
         <div className="grid grid-cols-2 gap-10">
           <div className="flex justify-center items-center">
             <div className="flex flex-col gap-3">
