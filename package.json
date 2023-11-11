@@ -12,7 +12,7 @@
     "@nextui-org/react": "^2.1.13",
     "@octokit/rest": "github:octokit/rest.js",
     "appwrite": "^13.0.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "axios-batch": "^0.0.8",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
